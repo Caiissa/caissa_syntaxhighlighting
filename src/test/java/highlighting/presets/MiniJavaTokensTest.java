@@ -286,6 +286,18 @@ class MiniJavaTokensTest {
     assertTrue(matcher.matches());
   }
 
+  @Test
+  void block_comment_multiple_lines() {
+    // given
+    text = "/* first\n// second\n// third */";
+
+    // when
+    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
+
+    // then
+    assertTrue(matcher.matches());
+  }
+
   // -------------------------
   // JAVADOC
   // -------------------------
@@ -324,6 +336,18 @@ class MiniJavaTokensTest {
 
     // then
     assertTrue(matcher.find());
+  }
+
+  @Test
+  void javadoc_comment_multiple_lines() {
+    // given
+    text = "/** first\n// second\n// third */";
+
+    // when
+    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
+
+    // then
+    assertTrue(matcher.matches());
   }
 
   // -------------------------

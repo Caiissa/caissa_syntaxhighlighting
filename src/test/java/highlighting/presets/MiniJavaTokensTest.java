@@ -20,7 +20,7 @@ class MiniJavaTokensTest {
     text = "'a'";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -32,7 +32,7 @@ class MiniJavaTokensTest {
     text = "Hallo World";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
 
     // then
     assertFalse(matcher.matches());
@@ -44,7 +44,7 @@ class MiniJavaTokensTest {
     text = "abc 'a' def";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -60,7 +60,7 @@ class MiniJavaTokensTest {
     text = "\"Hallo World\"";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -72,7 +72,7 @@ class MiniJavaTokensTest {
     text = "Hallo World";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
 
     // then
     assertFalse(matcher.matches());
@@ -84,7 +84,7 @@ class MiniJavaTokensTest {
     text = "\"a\" middle \"b\" end";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -96,7 +96,7 @@ class MiniJavaTokensTest {
     text = "\"text // not comment\"";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -112,7 +112,7 @@ class MiniJavaTokensTest {
     text = "class";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -124,7 +124,7 @@ class MiniJavaTokensTest {
     text = "classification";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
 
     // then
     assertFalse(matcher.matches());
@@ -136,7 +136,7 @@ class MiniJavaTokensTest {
     text = "abc class def";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -148,7 +148,7 @@ class MiniJavaTokensTest {
     text = "public class Test return";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -164,7 +164,7 @@ class MiniJavaTokensTest {
     text = "@Override";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -176,7 +176,7 @@ class MiniJavaTokensTest {
     text = "@123";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
 
     // then
     assertFalse(matcher.matches());
@@ -188,7 +188,7 @@ class MiniJavaTokensTest {
     text = "   @Override";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(3).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -204,7 +204,7 @@ class MiniJavaTokensTest {
     text = "// Dies ist ein Kommentar";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -216,7 +216,7 @@ class MiniJavaTokensTest {
     text = "/* Kein Zeilenkommentar */";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
 
     // then
     assertFalse(matcher.matches());
@@ -228,7 +228,7 @@ class MiniJavaTokensTest {
     text = "// class public return";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -240,7 +240,7 @@ class MiniJavaTokensTest {
     text = "code // comment here code";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(4).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(2).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -256,7 +256,7 @@ class MiniJavaTokensTest {
     text = "/**/";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -268,7 +268,7 @@ class MiniJavaTokensTest {
     text = "/* text */";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -280,7 +280,7 @@ class MiniJavaTokensTest {
     text = "/* class public return */";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -292,7 +292,7 @@ class MiniJavaTokensTest {
     text = "/* first\n// second\n// third */";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(5).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(1).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -308,7 +308,7 @@ class MiniJavaTokensTest {
     text = "/***/";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -320,7 +320,7 @@ class MiniJavaTokensTest {
     text = "/** text */";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());
@@ -332,7 +332,7 @@ class MiniJavaTokensTest {
     text = "code /** comment */ code";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
 
     // then
     assertTrue(matcher.find());
@@ -344,7 +344,7 @@ class MiniJavaTokensTest {
     text = "/** first\n// second\n// third */";
 
     // when
-    matcher = MiniJavaTokens.defaultTokens().get(6).pattern().matcher(text);
+    matcher = MiniJavaTokens.defaultTokens().get(0).pattern().matcher(text);
 
     // then
     assertTrue(matcher.matches());

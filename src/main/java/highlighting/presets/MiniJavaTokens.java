@@ -21,28 +21,28 @@ public final class MiniJavaTokens {
         // TODO: Define additional tokens for MiniJava, e.g.
         // identifiers, operators, etc.
 
-        // Characters
-        Token.of(Pattern.compile("'.'"), MiniJavaColours.CHAR_LITERAL_COLOUR),
+        // Javadoc‑Kommentare
+        Token.of(Pattern.compile("/\\*\\*[\\s\\S]*?\\*/"), MiniJavaColours.JAVADOC_COMMENT_COLOUR),
+
+        // Mehrzeilige Kommentare
+        Token.of(Pattern.compile("/\\*[\\s\\S]*?\\*/"), MiniJavaColours.BLOCK_COMMENT_COLOUR),
+
+        // Einzeilige Kommentare
+        Token.of(Pattern.compile("//.*"), MiniJavaColours.LINE_COMMENT_COLOUR),
 
         // Strings
         Token.of(Pattern.compile("\".*\""), MiniJavaColours.STRING_LITERAL_COLOUR),
+
+        // Characters
+        Token.of(Pattern.compile("'.'"), MiniJavaColours.CHAR_LITERAL_COLOUR),
+
+        // Annotationen
+        Token.of(Pattern.compile("@[A-Za-z-]+"), MiniJavaColours.ANNOTATION_COLOUR),
 
         // Keywords
         Token.of(
             Pattern.compile("\\b(?:package|import|class|public|private|final|return|null|new)\\b"),
             MiniJavaColours.KEYWORD_COLOUR),
-
-        // Annotationen
-        Token.of(Pattern.compile("@[A-Z,a-z_]+"), MiniJavaColours.ANNOTATION_COLOUR),
-
-        // Einzeilige Kommentare
-        Token.of(Pattern.compile("//.*$"), MiniJavaColours.LINE_COMMENT_COLOUR),
-
-        // Mehrzeilige Kommentare
-        Token.of(Pattern.compile("/\\*[\\s\\S]*?\\*/"), MiniJavaColours.BLOCK_COMMENT_COLOUR),
-
-        // Javadoc‑Kommentare
-        Token.of(Pattern.compile("/\\*\\*[\\s\\S]*?\\*/"), MiniJavaColours.JAVADOC_COMMENT_COLOUR),
 
         // Numbers
         Token.of(Pattern.compile("\\b\\d+\\b"), MiniJavaColours.NUMBER_COLOUR));
